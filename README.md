@@ -1,6 +1,6 @@
 # burp-collaborator-docker
 
-![image](https://img.shields.io/travis/com/v1sion/burp-collaborator-docker/master.svg) ![image](https://img.shields.io/microbadger/layers/v1sion/burp-collaborator.svg) ![image] (https://img.shields.io/microbadger/image-size/v1sion/burp-collaborator.svg)
+![image](https://img.shields.io/travis/com/v1sion/burp-collaborator-docker/master.svg) ![image](https://img.shields.io/microbadger/layers/v1sion/burp-collaborator.svg) ![image](https://img.shields.io/microbadger/image-size/v1sion/burp-collaborator.svg)
 
 Docker image for the Burp Collaborator Server With LetsEncrypt Certificate
 
