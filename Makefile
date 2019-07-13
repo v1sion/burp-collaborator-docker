@@ -8,16 +8,16 @@ SHELL=bash
 
 build:
 	@echo "build: ***Building $(IMAGE_NAME)***"
-	sed -i'' -e "s/DOMAIN/$(DOMAIN)/g" config/burp.config
-	sed -i'' -e "s/NS/$(NS)/g" config/burp.config
-	sed -i'' -e "s/IP/$(IP)/g" config/burp.config
+	sed -i '' -e "s/DOMAIN/$(DOMAIN)/g" config/burp.config
+	sed -i '' -e "s/NS/$(NS)/g" config/burp.config
+	sed -i '' -e "s/IP/$(IP)/g" config/burp.config
 	docker build -t $(IMAGE_NAME) .
 
 build-no-cache:
 	@echo "build: ***Building $(IMAGE_NAME) with no cache***"
-	sed -i'' -e "s/DOMAIN/$(DOMAIN)/g" config/burp.config
-	sed -i'' -e "s/NS/$(NS)/g" config/burp.config
-	sed -i'' -e "s/IP/$(IP)/g" config/burp.config
+	sed -i '' -e "s/DOMAIN/$(DOMAIN)/g" config/burp.config
+	sed -i '' -e "s/NS/$(NS)/g" config/burp.config
+	sed -i '' -e "s/IP/$(IP)/g" config/burp.config
 	docker build -t $(IMAGE_NAME) .
 
 stop:
