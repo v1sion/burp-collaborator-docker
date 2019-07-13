@@ -38,8 +38,12 @@ tag:
 	docker tag $(IMAGE_NAME) $(DOCKER_REGISTRY)/$(IMAGE_NAME)
 	docker tag $(IMAGE_NAME) $(DOCKER_REGISTRY)/$(IMAGE_NAME):$(VERSION)
 	docker tag $(IMAGE_NAME) $(DOCKER_REGISTRY)/$(IMAGE_NAME):latest
+	@echo "***Tagging git $(VERSION)***"
+	git tag v$(VERSION)
 
 push:
+	@echo "***Pushing git tags***"
+	git push --tags
 	@echo "push: $(DOCKER_REGISTRY)/$(IMAGE_NAME)"
 	docker push $(DOCKER_REGISTRY)/$(IMAGE_NAME):$(VERSION)
 	docker push $(DOCKER_REGISTRY)/$(IMAGE_NAME):latest

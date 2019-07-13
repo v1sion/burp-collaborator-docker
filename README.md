@@ -18,3 +18,12 @@ To run the image use the following command for the Makefile:
 ```bash
 make run
 ```
+
+## References
+
+<https://github.com/integrity-sa/burpcollaborator-docker>
+<https://blog.fabiopires.pt/running-your-instance-of-burp-collaborator-server/>
+
+## License
+
+You may copy, distribute and modify the software provided that modifications are described and licensed for free under LGPL-3. Derivatives works (including modifications or anything statically linked to the library) can only be redistributed under LGPL-3, but applications that use the library don't have to be.
