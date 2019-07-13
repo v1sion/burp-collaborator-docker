@@ -5,22 +5,15 @@ VERSION := 0.1.$(TRAVIS_BUILD_NUMBER)
 
 SHELL=bash
 
-.PHONY: build build-no-cache clean clean-all run stop
+.PHONY: build test tag clean publish push run stop version
 .EXPORT_ALL_VARIABLES: true
 
-build:
-	@echo "build: ***Building $(IMAGE_NAME)***"
-	sed -i '' -e "s/DOMAIN/$(DOMAIN)/g" config/burp.config
-	sed -i '' -e "s/NS/$(NS)/g" config/burp.config
-	sed -i '' -e "s/IP/$(IP)/g" config/burp.config
-	docker build -t $(IMAGE_NAME) .
+version:
+	@echo $(VERSION)
 
-build-no-cache:
-	@echo "build: ***Building $(IMAGE_NAME) with no cache***"
-	sed -i '' -e "s/DOMAIN/$(DOMAIN)/g" config/burp.config
-	sed -i '' -e "s/NS/$(NS)/g" config/burp.config
-	sed -i '' -e "s/IP/$(IP)/g" config/burp.config
-	docker build -t $(IMAGE_NAME) .
+build:
+	@echo "build: ***Building $(IMAGE_NAME)***"	
+	docker build -t $(IMAGE_NAME) . --build-arg DOMAIN=$(DOMAIN) --build-arg NS=$(NS) --build-arg IP=$(IP)
 
 stop:
 	docker stop $(CONTAINER_NAME)
@@ -53,9 +46,5 @@ publish: tag push
 
 clean:
 	@echo "clean: ***Cleaning container***"
-	docker rm -f $(CONTAINER_NAME)
-
-clean-all:
-	@echo "clean: ***Cleaning container and images***"
 	docker rm -f $(CONTAINER_NAME)
 	docker rmi -f $(IMAGE_NAME)
