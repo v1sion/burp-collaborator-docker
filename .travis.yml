@@ -3,11 +3,13 @@ sudo: 'required'
 services:
   - 'docker'
 
+before_script:
+  - git config credential.helper "store --file=.git/credentials"
+  - echo "https://${GITHUB_TOKEN}:@github.com" > .git/credentials
+  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+
 script:
   - 'make build'
-
-after_success:
   - if [[ "$TRAVIS_BRANCH" == "master" ]]; then
-      docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD ;
       make publish ;
     fi
