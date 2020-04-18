@@ -1,6 +1,6 @@
 FROM debian:latest
 
-LABEL maintainer andremomorais
+LABEL maintainer v1sion
 
 ARG DOMAIN
 ARG NS
